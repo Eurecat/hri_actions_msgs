@@ -64,12 +64,15 @@ string BRING_OBJECT = __intent_bring_object__
 string PLACE_OBJECT = __intent_place_object__
 string GREET = __intent_greet__
 string SAY = __intent_say__
+string GAZE = __intent_gaze__
 string PRESENT_CONTENT = __intent_present_content__
 string PERFORM_MOTION = __intent_perform_motion__
 string START_ACTIVITY = __intent_start_activity__
 string STOP_ACTIVITY = __intent_stop_activity__
 string WAKEUP = __intent_wakeup__
 string SUSPEND = __intent_suspend__
+string CANCEL_ACTIVITY = __intent_cancel_activity__
+string CONTINUE_ACTIVITY = __intent_continue_activity__
 
 
 ##########################################################################
@@ -108,8 +111,10 @@ string SUSPEND = __intent_suspend__
 # +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+
 # | `SAY`            | says some text, optionally annotated with gestures or expressions           | - `object` (the text to say)                                | - `recipient`                                                             |
 # +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+
-# | `PRESENT_CONTENT`| present (via a screen, pre-recorded text...) predefined content             | - `object` (the content identifier; special values          | - `recipient`                                                             |
-# |                  |                                                                             |   '__back__' and '__next__' mean 'go backwards/forwards')   |                                                                           |
+# | `GAZE`           | manages the robots gaze mode                                                | - `gaze_mode` (one of INDIVIDUAL, GROUP, IDLE, POINT)       |                                                                           |
+# |                  |                                                                             | - `target`                                                  |                                                                           |
+# +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+
+# | `PRESENT_CONTENT`| present (via a screen, pre-recorded text...) predefined content             | - `object` (the content identifier)                         | - `recipient`                                                             |
 # +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+
 # | `PERFORM_MOTION` | performs a motion (eg, a dance or a specific gesture like pointing, waving) | - `object` (the system-specific name of the motion/gesture) | - `recipient`                                                             |
 # +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+
@@ -121,6 +126,11 @@ string SUSPEND = __intent_suspend__
 # +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+
 # | `SUSPEND`        | request suspension of the system                                            |                                                             |                                                                           |
 # +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+
+# | `CANCEL_ACTIVITY`| request cancelation of an activity                                          |                                                             | - `object` (the name of the activity. If unset, current main activity)    | 
+# +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+
+# |`CONTINUE_ACTIVITY`| request resume of stopped activity                                         |                                                             |                                                                           |
+# +------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------+---------------------------------------------------------------------------+
+
 # .. END_INTENTS_TABLE
 #
 string data
