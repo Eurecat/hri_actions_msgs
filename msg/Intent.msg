@@ -198,3 +198,7 @@ uint8 priority
 # from a user for the robot to greet back or engage. As this interpretation is
 # not certain, the confidence of the intent may be below 1.0.
 float32 confidence
+
+# The language code for which this intent was generated (e.g. "en", "es", "ca")
+# Typically sourced from ASR language detection and forwarded from ConversationInput.
+string language_code
